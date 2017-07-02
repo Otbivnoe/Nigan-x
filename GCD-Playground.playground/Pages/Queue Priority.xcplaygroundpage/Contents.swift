@@ -3,13 +3,22 @@
 import UIKit
 import PlaygroundSupport
 
+PlaygroundPage.current.needsIndefiniteExecution = true
+
+/*:
+### Priorities:
+ 1. userInteractive
+ 2. userInitiated
+ 3. utility
+ 4. default
+ 5. background
+*/
+
 func task(_ symbol: String) {
     for _ in 1...10 {
         print(symbol)
     }
 }
-
-//: # Test
 
 let userInteractiveQueue = DispatchQueue.global(qos: .userInteractive)
 let userInitiatedQueue = DispatchQueue.global(qos: .userInitiated)
@@ -25,6 +34,10 @@ userInitiatedQueue.async {
     task("userInitiated")
 }
 
+defaultQueue.async {
+    task("default")
+}
+
 utilityQueue.async {
     task("utility")
 }
@@ -33,6 +46,4 @@ backgroundQueue.async {
     task("background")
 }
 
-defaultQueue.async {
-    task("default")
-}
+//: [Next](@next)
