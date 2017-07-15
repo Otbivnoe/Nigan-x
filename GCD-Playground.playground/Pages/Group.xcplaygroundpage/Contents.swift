@@ -5,6 +5,8 @@ import PlaygroundSupport
 
 PlaygroundPage.current.needsIndefiniteExecution = true
 
+/// Sync
+
 let group = DispatchGroup()
 
 for i in 0...3 {
@@ -18,5 +20,10 @@ print("before")
 group.notify(queue: DispatchQueue.main) {
     print("FINISH")
 }
+
+/// Async
+
+// group.enter()
+// group.leave()
 
 //: [Next](@next)
