@@ -3,5 +3,7 @@
     <pages>
         <page name='Queue Priority'/>
         <page name='Delayed'/>
+        <page name='WorkItem'/>
+        <page name='Group'/>
     </pages>
 </playground>
